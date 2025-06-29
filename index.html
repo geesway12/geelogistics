@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>geeLogistics - Sourcing Made Simple</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header class="hero text-center text-white d-flex flex-column justify-content-center align-items-center">
+    <img src="logo.png" alt="geeLogistics Logo" class="logo mb-3" />
+    <h1 class="display-6 fw-bold">Your Trusted China-to-Ghana Sourcing Partner</h1>
+    <p class="lead">We connect you to quality and affordable products from China—stress-free, direct to Ghana.</p>
+    <div class="cta-buttons">
+      <a href="https://web.facebook.com/geeswaylogistics" target="_blank" class="btn btn-light me-2">
+        <i class="bi bi-facebook"></i> Facebook
+      </a>
+      <a href="https://chat.whatsapp.com/LbPuTOh6pcbLHQgQS18FYe?mode=ac_c" target="_blank" class="btn btn-outline-light me-2">
+        <i class="bi bi-whatsapp"></i> WhatsApp Group
+      </a>
+      <a href="https://whatsapp.com/channel/0029VbBBrd7JP217QuHjfu2f" target="_blank" class="btn btn-outline-light">
+        <i class="bi bi-broadcast-pin"></i> WhatsApp Channel
+      </a>
+    </div>
+  </header>
+
+  <!-- IMAGE GALLERY -->
+  <section class="container my-5">
+    <div class="card shadow rounded-4">
+      <div class="card-header bg-dark text-white text-center fw-semibold fs-5">
+        Our Product Highlights
+      </div>
+      <div class="card-body p-0">
+        <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" id="carousel-images"></div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon shaded-arrow"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon shaded-arrow"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact text-center">
+    <h2>Contact Us</h2>
+    <p>Office Line: <a href="tel:+233269609634">+233 26 960 9634</a></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-dark">
+    <small>&copy; 2025 geeLogistics | Sourcing Made Simple</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const supportedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
+    const imageCount = 120;
+    const carousel = document.getElementById("carousel-images");
+    let firstImageLoaded = false;
+
+    for (let i = 1; i <= imageCount; i++) {
+      for (const ext of supportedExtensions) {
+        const img = new Image();
+        img.src = `assets/images/${i}.${ext}`;
+        img.onload = () => {
+          if (carousel.querySelector(`img[src="${img.src}"]`)) return;
+          const div = document.createElement("div");
+          div.className = 'carousel-item' + (!firstImageLoaded ? ' active' : '');
+          firstImageLoaded = true;
+
+          const imageElement = document.createElement("img");
+          imageElement.src = img.src;
+          imageElement.alt = `Slide ${i}`;
+          imageElement.className = "d-block mx-auto";
+          div.appendChild(imageElement);
+          carousel.appendChild(div);
+        };
+        img.onerror = () => {};
+      }
+    }
+  </script>
+</body>
+</html>
