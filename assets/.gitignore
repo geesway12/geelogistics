@@ -1,0 +1,14 @@
+# macOS system files
+.DS_Store
+
+# Node, Python, etc. (optional if not used, but good practice)
+node_modules/
+.env
+dist/
+*.log
+
+# VS Code settings (optional)
+.vscode/
+
+# OS metadata
+Thumbs.db
